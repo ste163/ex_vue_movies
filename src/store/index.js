@@ -1,16 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
-// TODO: Delete fake data later
-import { FAKE_MOVIE_DETAILS, FAKE_SEARCH_RESULTS } from "./FAKE_DATA";
-
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    searchTerm: "home alone",
-    searchResults: FAKE_SEARCH_RESULTS,
-    movieDetails: FAKE_MOVIE_DETAILS,
+    searchTerm: "",
+    searchResults: [],
+    movieDetails: null,
     reviews: []
   },
   mutations: {
@@ -56,5 +53,13 @@ export default new Vuex.Store({
       commit("setMovieReviews", reviewData.results);
     }
   },
-  modules: {}
+  modules: {},
+  getters: {
+    viewableMovies(state) {
+      if (!state.searchResults.results) {
+        return [];
+      }
+      return state.searchResults.results.filter(movie => !!movie.poster_path);
+    }
+  }
 });
