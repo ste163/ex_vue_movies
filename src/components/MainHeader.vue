@@ -19,7 +19,6 @@ export default {
   methods: {
     ...mapActions(["searchMovies"]),
     handleSubmit() {
-      console.log("SEARCHED FOR", this.query);
       this.searchMovies(this.query);
     }
   }
