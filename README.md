@@ -1,6 +1,6 @@
 # Movies
 
-SPA for searching for movies and displaying info about them.
+SPA for searching for movies and displaying info about them. Project focuses on Vuex.
 
 To use the app, create a `.env.local` and add a `VUE_APP_MOVIE_API_KEY=xxx`. Register for a key from [themoviedb](https://www.themoviedb.org/signup)
 
